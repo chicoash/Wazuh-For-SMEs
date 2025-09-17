@@ -11,7 +11,7 @@ The goal is to enhance **infrastructure visibility, log management, and threat d
 ---
 
 ## Architecture
-![Architecture Diagram](images/architecture.png)
+![Architecture Diagram](images/Architecture.png)
 
 **Components**
 - Wazuh Manager  
