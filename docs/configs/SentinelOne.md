@@ -16,7 +16,7 @@
 ### On Wazuh Server: 
 1. Create API Polling Script
     - Place the script in /var/ossec/integrations/sentinel_one.py
-        + [S1 Script](docs/sentinel_one.py)
+        + [S1 Script](../sentinel_one.py)
     - 
 
 
