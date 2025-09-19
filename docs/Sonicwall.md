@@ -1,4 +1,4 @@
-# This contains SentinelOne, O365 and Sonciwall Configurations
+# This file contains SentinelOne, O365 and Sonciwall Configurations
 
 ## SonicWall
 ### Append the following configuration snippet inside the <ossec_config> </ossec_config> section of the /var/ossec/etc/ossec.conf file
@@ -11,3 +11,4 @@
     <allowed-ips>this is your sonicwall IP</allowed-ips>
   </remote>
 ```
+
