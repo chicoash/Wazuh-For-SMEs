@@ -26,17 +26,18 @@ Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.12.0
 # replace xxx.xxx.xxx.xxx with Wazuh manager's IP
 wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12.0-1_amd64.deb && sudo WAZUH_MANAGER='xxx.xxx.xxx.xxx' dpkg -i ./wazuh-agent_4.12.0-1_amd64.deb
 ```
+------------------------------------------
 ## Configs, Rules, Decoders, Scripts etc. 
-### Configs
+#### Configs
 👉 [Sonicwall_Config](Sonicwall.md) <br>
 👉 [O365_Config](O365.md) <br>
 👉 [SentinelOne_Config](SentinelOne.md)<br>
 
-### Rules
+#### Rules
 👉 [Rules](Rules.md) <br>
 
-### Decoders
+#### Decoders
 👉 [Decoders](Decoders.md) <br>
 
-### Scripts
+#### Scripts
 👉 [Scripts](Scripts.md)
