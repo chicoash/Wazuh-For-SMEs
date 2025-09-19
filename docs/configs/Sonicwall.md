@@ -2,7 +2,7 @@
 
 
 #### Append the following configuration snippet inside the <ossec_config> </ossec_config> section of the /var/ossec/etc/ossec.conf file
-``` bash
+``` xml
   <!--  SYSLOG Firewall -->
   <remote>
     <connection>syslog</connection>
