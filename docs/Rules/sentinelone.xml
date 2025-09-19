@@ -1,0 +1,53 @@
+  GNU nano 7.2                                                                                                 sentinelone.xml
+<!-- 
+Rules for SentinelOne via API 
+Rule IDs from 100600 - 100605
+-->
+
+<!-- SentinelOne logs grouped -->
+<group name="sentinelone_API">
+  <rule id="100600" level="3">
+    <decoded_as>json</decoded_as>
+    <description>Logs from SentinelOne.</description>
+  </rule>
+
+  <!-- Rules to detect new threat -->
+  <rule id="100601" level="10">
+    <if_sid>100600</if_sid>
+    <field name="threatInfo.confidenceLevel">malicious</field>
+    <description>S1: New threat $(threatInfo.threatName) detected on $(agentRealtimeInfo.agentComputerName). Confidence level: $(threatInfo.confidenceLevel)</description>
+  </rule>
+
+    <!-- Rules to detect suscpicious -->
+    <rule id="100602" level="10">
+      <if_sid>100600</if_sid>
+      <field name="threatInfo.confidenceLevel">suspicious</field>
+      <description>S1: New threat $(threatInfo.threatName) detected on $(agentRealtimeInfo.agentComputerName). Confidence level: $(threatInfo.confidenceLevel)</description>
+    </rule>
+
+  <!-- Rules to detect successfully mitigated threat -->
+  <rule id="100603" level="5">
+    <if_sid>100600</if_sid>
+    <field name="threatInfo.mitigationStatus">mitigated</field>
+    <description>S1: Threat $(threatInfo.threatName) successfully mitigated on $(agentRealtimeInfo.agentComputerName).</description>
+  </rule>
+
+    <!-- Rules to detect multiple active threats -->
+    <rule id="100604" level="12" ignore="120">
+      <if_sid>100600</if_sid>
+      <field name="agentRealtimeInfo.activeThreats">[4-9]\d*|\d{2,}</field>
+      <description>S1: Multiple active threats detected on $(agentRealtimeInfo.agentComputerName).</description>
+    </rule>
+
+  <!-- Rules to detect reboot required -->
+  <rule id="100605" level="7">
+    <if_sid>100600</if_sid>
+    <field name="agentRealtimeInfo.rebootRequired">true</field>
+    <description>S1: System reboot required on $(agentRealtimeInfo.agentComputerName) to complete actions.</description>
+  </rule>
+</group>
+
+
+
+
+
