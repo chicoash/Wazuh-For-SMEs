@@ -29,9 +29,9 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12
 ------------------------------------------
 ## Configs, Rules, Decoders, Scripts etc. 
 #### Configs
-👉 [Sonicwall_Config](Sonicwall.md) <br>
-👉 [O365_Config](O365.md) <br>
-👉 [SentinelOne_Config](SentinelOne.md)<br>
+👉 [Sonicwall Config](Sonicwall.md) <br>
+👉 [O365 Config](O365.md) <br>
+👉 [SentinelOne Config](SentinelOne.md)<br>
 
 #### Rules
 👉 [Rules](Rules.md) <br>
