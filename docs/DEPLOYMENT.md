@@ -33,15 +33,13 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12
 👉 [O365 Config](configs/O365.md) <br>
 👉 [SentinelOne Config](configs/SentinelOne.md)<br>
 
-#### Rules
+#### Rules and Decoders
 - Default rules customized to enhance visibility and improve detection accuracy
     👉 [Local Rules](rules_decoders/local_rules.xml) <br>
 - SentinelOne rules
     👉 [S1 Rules](rules_decoders/sentinelone.xml) <br>
 - Brute force detection rules
     👉 [BFD Rules](rules_decoders//bruteforce_detection.xml) <br>
-
-#### Decoders
 - Custom decoder to decode Linux user changes
 👉 [Decoders](rules_decoders/local_decoder.xml) <br>
 
