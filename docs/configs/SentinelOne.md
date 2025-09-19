@@ -16,22 +16,22 @@
 ### On Wazuh Server: 
 1. Install dependencies for the script
     ``` bash
-        # allow script to read the environment variable file
-        sudo apt install python3-dotenv
+    # allow script to read the environment variable file
+    sudo apt install python3-dotenv
     ```
 2. Create .env file to store the token
     - Create the env file in /var/ossec/integrations/ by changing to the mentioned directory
         ``` bash
-            cd /var/ossec/integrations/
+        cd /var/ossec/integrations/
         ```
     - Create the file and paste the API token in this file
         ```bash
-            nano .env #copy the api key into this file
+        nano .env #copy the api key into this file
         ```
     - Limit the access to the file to root and wazuh users
         ```bash
-            chmod 600 .env
-            chown root:wazuh .env
+        chmod 600 .env
+        chown root:wazuh .env
 3. Create API Polling Script
     - Place the script in /var/ossec/integrations/sentinel_one.py
         + [S1 Script](../sentinel_one.py)
