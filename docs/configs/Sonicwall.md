@@ -1,7 +1,7 @@
-# This file contains SentinelOne, O365 and Sonciwall Configurations
+# This file contains Sonciwall Configurations
 
-## SonicWall
-### Append the following configuration snippet inside the <ossec_config> </ossec_config> section of the /var/ossec/etc/ossec.conf file
+
+#### Append the following configuration snippet inside the <ossec_config> </ossec_config> section of the /var/ossec/etc/ossec.conf file
 ``` bash
   <!--  SYSLOG Firewall -->
   <remote>
