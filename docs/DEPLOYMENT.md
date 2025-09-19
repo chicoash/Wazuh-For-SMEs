@@ -40,4 +40,4 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12
 👉 [Decoders](Decoders.md) <br>
 
 #### Scripts
-👉 [Scripts](Scripts.md)
+👉 [S1 Script](S1_script.md)
