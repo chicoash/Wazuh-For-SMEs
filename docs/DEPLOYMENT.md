@@ -6,7 +6,7 @@
 curl -sO https://packages.wazuh.com/4.12/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
 ```
 ### Once the installation is done, you will see the url and the credentials at the end
-![installation screenshot](images/Installation.png)
+![screenshot](images/installation.png)
 
 ### Disable Wazuh Updates (Recommended)
 ```bash
@@ -21,7 +21,7 @@ Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.12.0
 ```
 
 ### Installing Agents on Linux (Debian amd64)
-```
+```bash
 # replace xxx.xxx.xxx.xxx with Wazuh manager's IP
 wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12.0-1_amd64.deb && sudo WAZUH_MANAGER='xxx.xxx.xxx.xxx' dpkg -i ./wazuh-agent_4.12.0-1_amd64.deb
 ```
