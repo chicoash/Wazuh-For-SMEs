@@ -39,11 +39,11 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12
 - SentinelOne rules
     👉 [S1 Rules](rules_decoders/sentinelone.xml) <br>
 - Brute force detection rules
-    👉 [BFD Rules](rules_decoders/bruteforce_detection.xml) <br>
+    👉 [BFD Rules](rules_decoders//bruteforce_detection.xml) <br>
 
 #### Decoders
 - Custom decoder to decode Linux user changes
-👉 [Decoders](Decoders.md) <br>
+👉 [Decoders](rules_decoders/local_decoder.xml) <br>
 
 #### Scripts
 👉 [S1 Script](sentinel_one.py)
