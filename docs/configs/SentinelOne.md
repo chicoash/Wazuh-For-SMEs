@@ -59,7 +59,7 @@
         chmod 640 /var/log/sentinelone.json
         ```
 5. Create the S1 rules
-    -   Place this file [sentinelone.xml](../Rules/sentinelone.xml) in /var/ossec/etc/rules/
+    -   Place this file [sentinelone.xml](../rules_decoders/sentinelone.xml) in /var/ossec/etc/rules/
 
 6. Restart the Wazuh Manager
     ```bash 

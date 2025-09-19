@@ -1,0 +1,17 @@
+
+<!-- Linux User Change Decoder -->
+<decoder name="l_usermod">
+  <program_name>usermod</program_name>
+</decoder>
+
+<decoder name="linux_usermod_groupadd_plain">
+  <parent>l_usermod</parent>
+  <regex offset="after_parent">add '(\.+)' to group '(\.+)'</regex>
+  <order>dstuser,dstgroup</order>
+</decoder>
+
+<decoder name="linux_usermod_groupadd_shadow">
+  <parent>l_usermod</parent>
+  <regex offset="after_parent">add '(\.+)' to shadow group '(\.+)'</regex>
+  <order>dstuser,dstgroup</order>
+</decoder>

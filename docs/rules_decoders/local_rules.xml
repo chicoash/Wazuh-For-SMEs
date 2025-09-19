@@ -1,0 +1,189 @@
+<!-- Local rules -->
+
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+
+<!-- Example -->
+<group name="local,syslog,sshd,">
+
+  <!--
+  Dec 10 01:02:02 host sshd[1234]: Failed none for root from 1.1.1.1 port 1066 ssh2
+  -->
+  <rule id="100001" level="5">
+    <if_sid>5716</if_sid>
+    <srcip>1.1.1.1</srcip>
+    <description>sshd: authentication failed from IP 1.1.1.1.</description>
+    <group>authentication_failed,pci_dss_10.2.4,pci_dss_10.2.5,</group>
+  </rule>
+</group>
+
+
+<!-- Customized  default rules to enhance the logs (include more details) -->
+<!-- Linux Rules: -->
+<!-- New Session Opened -->
+<group name="pam,syslog,">
+  <rule id="5501" level="3" overwrite="yes">
+    <if_sid>5500</if_sid>
+    <match>session opened for user </match>
+    <description>PAM: Login session opened by $(srcuser) on $(hostname).</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+    <group>authentication_success,pci_dss_10.2.5,gpg13_7.8,gpg13_7.9,gdpr_IV_32.2,hipaa_164.312.b>
+  </rule>
+</group>
+
+<!-- New Group/User Created or Changed -->
+<group name="syslog,adduser,linux,">
+  <rule id="5901" level="8" overwrite="yes">
+    <match>^new group</match>
+    <description>New group: "$(dstuser)" added to the system.</description>
+    <group>pci_dss_10.2.7,pci_dss_10.2.5,pci_dss_8.1.2,gpg13_4.13,gdpr_IV_35.7.d,gdpr_IV_32.2,hip>
+  </rule>
+
+  <rule id="5902" level="8" overwrite="yes">
+    <match>^new user|^new account added</match>
+    <description>New user: "$(dstuser)" added to the system.</description>
+    <mitre>
+     <id>T1136</id>
+    </mitre>
+    <group>pci_dss_10.2.7,pci_dss_10.2.5,pci_dss_8.1.2,gpg13_4.13,gdpr_IV_35.7.d,gdpr_IV_32.2,hip>
+  </rule>
+
+  <rule id="5904" level="8" overwrite="yes">
+    <match>^changed user</match>
+    <description>Information from the user: "$(dstuser)" was changed.</description>
+    <mitre>
+      <id>T1098</id>
+    </mitre>
+    <group>pci_dss_10.2.7,pci_dss_10.2.5,pci_dss_8.1.2,gpg13_4.13,gdpr_IV_35.7.d,gdpr_IV_32.2,hip>
+  </rule>
+</group>
+
+
+<!-- Rules for Linux Group Modifications -->
+<group name="local,linux,usermod,">
+  <rule id="120300" level="7">
+    <decoded_as>l_usermod</decoded_as>
+    <description>Linux user "$(dstuser)" added to group "$(dstgroup)"</description>
+    <group>linux,account_change,</group>
+    <mitre><id>T1098.003</id></mitre>
+  </rule>
+
+  <rule id="120301" level="12">
+    <if_sid>120300</if_sid>
+    <field name="dstgroup">^sudo$</field>
+    <description>User "$(dstuser)" added to sudo group on $(hostname)</description>
+    <group>account_change,sudo_group,</group>
+    <mitre><id>T1098.003</id></mitre>
+  </rule>
+</group>
+
+
+<!-- Linux SSH / Auth Failures -->
+<group name="syslog,access_control,">
+  <rule id="2502" level="10" overwrite="yes">
+    <match>more authentication failures;|REPEATED login failures</match>
+    <description>Linux SSH: $(dstuser) made repeated wrong password attempts from $(srcip) on $(h>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+    <group>authentication_failed,pci_dss_10.2.4,pci_dss_10.2.5,gpg13_7.8,gdpr_IV_35.7.d,gdpr_IV_3>
+  </rule>
+</group>
+
+<!-- Linux Attack Detection -->
+<group name="syslog,attacks,">
+  <rule id="40111" level="12" frequency="12" timeframe="120" overwrite="yes">
+    <if_matched_group>authentication_failed</if_matched_group>
+    <same_source_ip />
+    <description>Linux SSH: $(hostname) recorded more than 12 failed logins in 2 minutes for user>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+    <group>authentication_failures,pci_dss_10.2.4,pci_dss_10.2.5,gpg13_7.1,gpg13_7.8,gdpr_IV_35.7>
+  </rule>
+
+  <rule id="40112" level="12" timeframe="480" overwrite="yes">
+    <if_group>authentication_success</if_group>
+    <if_matched_group>authentication_failures</if_matched_group>
+    <same_source_ip />
+    <description>Multiple authentication failures followed by a success. Possible Successful Brut>
+    <mitre>
+      <id>T1078</id>
+      <id>T1110</id>
+    </mitre>
+    <group>pci_dss_10.2.4,pci_dss_10.2.5,pci_dss_11.4,gpg13_7.1,gpg13_7.8,gdpr_IV_35.7.d,gdpr_IV_>
+  </rule>
+</group>
+
+
+<!-- Priv Escalation: Windows -->
+<group name="windows,windows_security,">
+  <rule id="60159" level="12" overwrite="yes">
+    <if_sid>60141,60142</if_sid>
+    <field name="win.eventdata.targetSid">^S-1-5-\S+-512$</field>
+    <description>Domain Admins group changed by user $(win.eventdata.subjectUserName)</descriptio>
+    <options>no_full_log</options>
+    <group>group_changed,win_group_changed,pci_dss_8.1.2,pci_dss_10.2.5,gpg13_7.10,gdpr_IV_35.7.d>
+    <mitre>
+      <id>T1484</id>
+    </mitre>
+  </rule>
+
+  <rule id="60167" level="12" overwrite="yes">
+    <if_sid>60149,60150,60151,60152</if_sid>
+    <field name="win.eventdata.targetSid">^S-1-5-\S+-519$</field>
+    <description>Enterprise Admins group changed by user $(win.eventdata.subjectUserName)</descri>
+    <options>no_full_log</options>
+    <group>group_changed,win_group_changed,pci_dss_8.1.2,pci_dss_10.2.5,gpg13_7.10,gdpr_IV_35.7.d>
+    <mitre>
+      <id>T1484</id>
+    </mitre>
+  </rule>
+
+  <rule id="60173" level="10" overwrite="yes">
+    <if_sid>60144,60145</if_sid>
+    <field name="win.eventdata.targetSid">^S-1-5-32-548$</field>
+    <description>Account Operators group changed by user $(win.eventdata.subjectUserName)</descri>
+    <options>no_full_log</options>
+    <group>group_changed,win_group_changed,pci_dss_8.1.2,pci_dss_10.2.5,gpg13_7.10,gdpr_IV_35.7.d>
+    <mitre>
+      <id>T1484</id>
+    </mitre>
+  </rule>
+
+  <rule id="60166" level="12" overwrite="yes">
+    <if_sid>60149,60150,60151,60152</if_sid>
+    <field name="win.eventdata.targetSid">^S-1-5-\S+-518$</field>
+    <description>Schema Admins group changed by user $(win.eventdata.subjectUserName)</descriptio>
+    <options>no_full_log</options>
+    <group>group_changed,win_group_changed,pci_dss_8.1.2,pci_dss_10.2.5,gpg13_7.10,gdpr_IV_35.7.d>
+    <mitre>
+      <id>T1484</id>
+    </mitre>
+  </rule>
+
+  <rule id="60174" level="10" overwrite="yes">
+    <if_sid>60144,60145</if_sid>
+    <field name="win.eventdata.targetSid">^S-1-5-32-549$</field>
+    <description>Server Operators group changed by user $(win.eventdata.subjectUserName)</descrip>
+    <options>no_full_log</options>
+    <group>group_changed,win_group_changed,pci_dss_8.1.2,pci_dss_10.2.5,gpg13_7.10,gdpr_IV_35.7.d>
+    <mitre>
+      <id>T1484</id>
+    </mitre>
+  </rule>
+
+  <rule id="60176" level="12" overwrite="yes">
+    <if_sid>60144,60145</if_sid>
+    <field name="win.eventdata.targetSid">^S-1-5-\S+-551$</field>
+    <description>Backup Operators group changed by user $(win.eventdata.subjectUserName)</descrip>
+    <options>no_full_log</options>
+    <group>group_changed,win_group_changed,pci_dss_8.1.2,pci_dss_10.2.5,gpg13_7.10,gdpr_IV_35.7.d>
+    <mitre>
+      <id>T1484</id>
+    </mitre>
+  </rule>
+</group>

@@ -34,7 +34,9 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12
 👉 [SentinelOne Config](configs/SentinelOne.md)<br>
 
 #### Rules
-👉 [Rules](Rules.md) <br>
+- Default rules customized to enhance visibility and improve detection accuracy
+- Copy/Replace this file with the existing local rules located in /var/ossec/etc/rules
+👉 [Local Rules](local_rules.xml) <br>
 
 #### Decoders
 👉 [Decoders](Decoders.md) <br>
