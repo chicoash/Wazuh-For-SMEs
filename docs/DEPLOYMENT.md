@@ -5,8 +5,9 @@
 ```bash
 curl -sO https://packages.wazuh.com/4.12/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
 ```
+![wazuh official guide](https://documentation.wazuh.com/current/quickstart.html)
 ### Once the installation is done, you will see the url and the credentials at the end
-![screenshot](images/Installation.png)
+
 
 ### Disable Wazuh Updates (Recommended)
 ```bash
