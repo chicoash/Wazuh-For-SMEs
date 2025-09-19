@@ -23,5 +23,5 @@ The goal is to enhance **infrastructure visibility, log management, and threat d
 ---
 
 ## Documentation
-👉 Full deployment steps, agent installation, integrations, and evaluation are available here:  
+👉 Full deployment steps, agent installation, integrations are available here:  
 [Deployment Guide](docs/DEPLOYMENT.md)
