@@ -35,10 +35,14 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12
 
 #### Rules
 - Default rules customized to enhance visibility and improve detection accuracy
-- Copy/Replace this file with the existing local rules located in /var/ossec/etc/rules
-👉 [Local Rules](local_rules.xml) <br>
+    👉 [Local Rules](local_rules.xml) <br>
+- SentinelOne rules
+    👉 [S1 Rules](sentinelone.xml) <br>
+- Brute force detection rules
+    👉 [BFD Rules](bruteforce_detection.xml) <br>
 
 #### Decoders
+- Custom decoder to decode Linux user changes
 👉 [Decoders](Decoders.md) <br>
 
 #### Scripts
