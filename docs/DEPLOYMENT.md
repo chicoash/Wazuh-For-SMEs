@@ -32,6 +32,7 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12
 👉 [Sonicwall Config](configs/Sonicwall.md) <br>
 👉 [O365 Config](configs/O365.md) <br>
 👉 [SentinelOne Config](configs/SentinelOne.md)<br>
+👉 [VirusTotal Config](configs/VirusTotal.md)<br>
 
 #### Rules and Decoders
 - Default rules customized to enhance visibility and improve detection accuracy
