@@ -23,7 +23,7 @@ The goal is to enhance **infrastructure visibility, log management, and threat d
 ---
 ## ⚙️ Server Requirement 
 - RAM:  16GB 
-- Disk: 300GB
+- Disk: 500GB
 - CPU:  4 vCPU
 ---
 
