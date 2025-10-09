@@ -47,7 +47,7 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12
 #### Scripts
 👉 [S1 Script](sentinel_one.py)
 
-🔗 Resources
+### 🔗 Resources
 - [Wazuh Installation](https://documentation.wazuh.com/4.12/quickstart.html)
 - [O365 Integration](https://documentation.wazuh.com/current/cloud-security/office365/monitoring-office365-activity.html)
 - [S1 Integration](https://wazuh.com/blog/integrating-sentinelone-xdr-with-wazuh/) 
