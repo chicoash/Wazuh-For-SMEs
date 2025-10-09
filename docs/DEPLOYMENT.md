@@ -27,7 +27,7 @@ Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.12.0
 wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12.0-1_amd64.deb && sudo WAZUH_MANAGER='xxx.xxx.xxx.xxx' dpkg -i ./wazuh-agent_4.12.0-1_amd64.deb
 ```
 ------------------------------------------
-## Configs, Rules, Decoders, Scripts etc. 
+## 📄 Configs, Rules, Decoders, Scripts etc. 
 #### Configs
 👉 [Sonicwall Config](configs/Sonicwall.md) <br>
 👉 [O365 Config](configs/O365.md) <br>
@@ -47,7 +47,7 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12
 #### Scripts
 👉 [S1 Script](sentinel_one.py)
 
-### 🔗 Resources
+#### 🔗 Resources
 - [Wazuh Installation](https://documentation.wazuh.com/4.12/quickstart.html)
 - [O365 Integration](https://documentation.wazuh.com/current/cloud-security/office365/monitoring-office365-activity.html)
 - [S1 Integration](https://wazuh.com/blog/integrating-sentinelone-xdr-with-wazuh/) 
