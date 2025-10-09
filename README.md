@@ -1,6 +1,6 @@
-# Wazuh SIEM Deployment for SMEs (Final Year Project)
+# Wazuh SIEM Deployment for SMEs (FYP)
 
-## Project Overview
+## 🧩 Project Overview
 This repository documents the deployment of **Wazuh SIEM** in a Small-to-Medium Enterprise (SME) environment as part of my Final Year Project (FYP).  
 The goal is to enhance **infrastructure visibility, log management, and threat detection** using an open-source, cost-effective solution.  
 
@@ -10,7 +10,7 @@ The goal is to enhance **infrastructure visibility, log management, and threat d
 
 ---
 
-## Architecture
+## 🏗️ Architecture
 ![Architecture Diagram](images/Architecture.png)
 
 **Components**
@@ -27,6 +27,6 @@ The goal is to enhance **infrastructure visibility, log management, and threat d
 - CPU:  4 vCPU
 ---
 
-## Documentation
+## 📄 Documentation
 👉 Full deployment steps, agent installation, integrations are available here:  
 [Deployment Guide](docs/DEPLOYMENT.md)
