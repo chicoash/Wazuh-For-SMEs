@@ -29,7 +29,7 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12
 ------------------------------------------
 ## 📄 Configs, Rules, Decoders, Scripts etc. 
 #### Configs
-- The following configurations will integrate these with Wazuh
+- The following configurations will integrate these with Wazuh <br>
 👉 [Sonicwall Config](configs/Sonicwall.md) <br>
 👉 [O365 Config](configs/O365.md) <br>
 👉 [SentinelOne Config](configs/SentinelOne.md)<br>
