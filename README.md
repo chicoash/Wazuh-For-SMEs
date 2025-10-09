@@ -21,6 +21,11 @@ The goal is to enhance **infrastructure visibility, log management, and threat d
 - External log integrations (O365, SentinelOne, SonicWall, VirusTotal)  
 
 ---
+## ⚙️ Server Requirement 
+- RAM:  16GB 
+- Disk: 300GB
+- CPU:  4 vCPU
+---
 
 ## Documentation
 👉 Full deployment steps, agent installation, integrations are available here:  

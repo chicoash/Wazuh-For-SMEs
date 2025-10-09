@@ -5,7 +5,7 @@
 ```bash
 curl -sO https://packages.wazuh.com/4.12/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
 ```
-[Wazuh Documentation](https://documentation.wazuh.com/current/quickstart.html)
+
 ### Once the installation is done, you will see the url and the credentials at the end
 
 
@@ -46,3 +46,9 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.12
 
 #### Scripts
 👉 [S1 Script](sentinel_one.py)
+
+🔗 Resources
+- [Wazuh Installation](https://documentation.wazuh.com/4.12/quickstart.html)
+- [O365 Integration](https://documentation.wazuh.com/current/cloud-security/office365/monitoring-office365-activity.html)
+- [S1 Integration](https://wazuh.com/blog/integrating-sentinelone-xdr-with-wazuh/) 
+- [VirusTotal Documentation](https://docs.virustotal.com/reference/overview)
